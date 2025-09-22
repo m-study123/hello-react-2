@@ -1,18 +1,21 @@
+import { useState } from "react";
+
 function App() {
-  // ボタン用の関数（仮の例）
-  const handleIncrement = () => console.log("増やす");
-  const handleDecrement = () => console.log("減らす");
-  const handleReset = () => console.log("リセット");
+  const fortunes = ["大吉 🎉", "中吉 😊", "小吉 🙂", "凶 😱"];
+  const [result, setResult] = useState("");
+
+  const handleClick = () => {
+    const randomIndex = Math.floor(Math.random() * fortunes.length);
+    setResult(fortunes[randomIndex]);
+  };
 
   return (
     <div>
-      <h1>こんにちは React!</h1>
-      <button onClick={handleIncrement}>増やす</button>
-      <button onClick={handleDecrement}>減らす</button>
-      <button onClick={handleReset}>リセット</button>
+      <h1>おみくじアプリ</h1>
+      <button onClick={handleClick}>おみくじを引く</button>
+      <p>{result}</p>
     </div>
   );
 }
 
 export default App;
-
