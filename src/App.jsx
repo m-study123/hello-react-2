@@ -43,4 +43,27 @@ function App() {
       case "大吉 🎉": return "red";
       case "中吉 😊": return "orange";
       case "小吉 🙂": return "blue";
-      case "凶 😱": return "
+      case "凶 😱": return "gray";
+      default: return "black";
+    }
+  };
+
+  return (
+    <div style={appStyle}>
+      <h1>おみくじアプリ</h1>
+      <button style={buttonStyle} onClick={handleClick}>おみくじを引く</button>
+      <p style={resultStyle}>{result}</p>
+
+      <h2>履歴</h2>
+      <ul style={{ listStyle: "none", padding: 0 }}>
+        {history.map((item, index) => (
+          <li key={index} style={{ color: getColor(item.result), fontSize: "18px", margin: "5px 0" }}>
+            {item.result} - <span style={{ fontSize: "14px", color: "gray" }}>{item.time}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
