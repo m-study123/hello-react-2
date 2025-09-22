@@ -57,35 +57,26 @@ function App() {
       <h2>履歴</h2>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {history.map((item, index) => (
-          <li key={index} style={{ color: getColor(item.result), fontSize: "18px", margin: "5px 0" }}>
-            {item.result} - <span style={{ fontSize: "14px", color: "gray" }}>{item.time}</span>
+          <li 
+            key={index} 
+            style={{ 
+              backgroundColor: "#f0f0f0", 
+              borderRadius: "8px", 
+              padding: "10px", 
+              margin: "5px 0", 
+              color: getColor(item.result),
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}
+          >
+            <span>{item.result}</span>
+            <span style={{ fontSize: "14px", color: "gray" }}>{item.time}</span>
           </li>
         ))}
       </ul>
     </div>
   );
 }
-
-<ul style={{ listStyle: "none", padding: 0 }}>
-  {history.map((item, index) => (
-    <li 
-      key={index} 
-      style={{ 
-        backgroundColor: "#f0f0f0", 
-        borderRadius: "8px", 
-        padding: "10px", 
-        margin: "5px 0", 
-        color: getColor(item.result),
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center"
-      }}
-    >
-      <span>{item.result}</span>
-      <span style={{ fontSize: "14px", color: "gray" }}>{item.time}</span>
-    </li>
-  ))}
-</ul>
-
 
 export default App;
