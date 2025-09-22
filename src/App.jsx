@@ -35,6 +35,21 @@ function App() {
     marginTop: "20px",
   };
 
+  const getColor = (fortune) => {
+    switch (fortune) {
+      case "大吉 🎉":
+        return "red";
+      case "中吉 😊":
+        return "orange";
+      case "小吉 🙂":
+        return "blue";
+      case "凶 😱":
+        return "gray";
+      default:
+        return "black";
+    }
+  };
+
   return (
     <div style={appStyle}>
       <h1>おみくじアプリ</h1>
@@ -42,9 +57,11 @@ function App() {
       <p style={resultStyle}>{result}</p>
 
       <h2>履歴</h2>
-      <ul>
+      <ul style={{ listStyle: "none", padding: 0 }}>
         {history.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index} style={{ color: getColor(item), fontSize: "18px", margin: "5px 0" }}>
+            {item}
+          </li>
         ))}
       </ul>
     </div>
